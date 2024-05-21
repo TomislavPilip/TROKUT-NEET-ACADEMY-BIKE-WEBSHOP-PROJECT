@@ -1,0 +1,16 @@
+.separate-categories-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.container .row .col .seperate .same-size-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.container .row .col .seperate .scott-foil-image {
+  object-position: 70%;
+}
+.container .row .col .seperate {
+  height: 90%;
+}

@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@100;400&family=Oswald:wght@600&family=Playfair+Display:ital,wght@0,500;0,900;1,400&family=Poppins&family=Roboto&display=swap");
+
+* {
+  font-family: "Oswald", sans-serif;
+  box-sizing: border-box;
+}
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+}
+.accordion-content {
+  display: flex;
+}
+
+.accordion-content div img {
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0px 0px 3px white;
+}
+.accordion-content div {
+  color: white;
+}
+.accordion-content div p {
+  text-shadow: 0px 0px 4px rgb(2, 2, 143);
+}
+.accordion-content div:nth-child(1) {
+  flex: 1;
+  padding: 10px;
+  text-align: justify;
+}
+.accordion-content div:nth-child(2) {
+  flex: 1;
+  padding: 10px;
+}
+.about-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: url(../../assets/About/futurecronobike.webp)
+    rgba(56, 48, 48, 0.85);
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10px 5px 5px 5px;
+}
+.about-container .about-section {
+  background: url(../../assets/About/cycling.jpg) no-repeat left;
+  background-size: 67%;
+  background-color: rgb(55, 42, 7, 0);
+  overflow: hidden;
+  padding: 90px 0;
+}
+.about-container .about-section .inside-container {
+  width: 55%;
+  float: right;
+  background: url(../../assets/About/bikebanner.jpg) rgba(56, 48, 48, 0.9);
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 70px 70px;
+  box-shadow: 4px 4px 8px grey;
+  margin-right: 5px;
+}
+.about-container .about-section .inside-container h1 {
+  margin: 30px 0;
+  font-size: 30px;
+  font-weight: 900;
+  color: white;
+}
+.about-container .about-section .inside-container p {
+  font-size: 14px;
+  color: rgba(255, 255, 255);
+  text-align: justify;
+  line-height: 30px;
+  margin-bottom: 40px;
+}
+
+.about-container .about-us {
+  width: 70%;
+  margin-bottom: 30px;
+}
+.about-container .about-us .container {
+  width: 100%;
+  padding: 15px 0 15px 0;
+}
+
+@media only screen and (max-width: 1200px) {
+}
+
+@media only screen and (max-width: 1050px) {
+  .inside-container {
+    padding: 20px;
+  }
+  .about-us {
+    margin-top: 0px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .about-container .about-section .inside-container {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+  }
+  .about-container .about-section {
+    background-size: 0;
+    padding: 10px 0;
+  }
+  .about-container .about-us {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .inside-container {
+    padding: 40px;
+    width: 100%;
+  }
+  .accordion-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .about-section {
+    padding: 0;
+  }
+  .inside-container {
+    padding: 20px;
+  }
+}

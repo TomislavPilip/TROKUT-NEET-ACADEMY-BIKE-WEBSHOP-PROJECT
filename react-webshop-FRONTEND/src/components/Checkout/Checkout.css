@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@100;400&family=Oswald:wght@600&family=Playfair+Display:ital,wght@0,500;0,900;1,400&family=Poppins&family=Roboto&display=swap");
+
+/*Glavni dijelovi HTML-a*/
+root {
+  --main-font-family: "Oswald", sans-serif;
+  --secondary-font-family: "Playfair Display", serif;
+  --third-font-family: ;
+  --main-color: #e25822;
+  --main-backgorund-color: ;
+}
+* {
+  font-family: "Oswald", sans-serif;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+section {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100%;
+  padding: 25px 25px;
+  background: url(../../assets/Checkout-images/background.jpg)
+    rgba(56, 48, 48, 0.9);
+  background-position: center;
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 20px;
+}
+section .checkout-form {
+  padding: 20px;
+  width: 1000px;
+  background-color: rgb(254, 254, 254, 0);
+  box-shadow: 3px 3px 7.5px white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+}
+
+/*Klase i selektori*/
+.checkout-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.checkout-container h2 {
+  color: white;
+}
+.checkout-container .billing-adress {
+  display: flex;
+  width: 50%;
+  flex: 1;
+  flex-direction: column;
+  padding: 30px;
+}
+.checkout-container .payment {
+  padding: 30px;
+  width: 50%;
+}
+.checkout-container .col1 {
+  padding: 8px;
+  color: white;
+  width: 100%;
+}
+.checkout-container .col1 h2 {
+  font-size: 22px;
+  color: #333;
+  padding-bottom: 8px;
+}
+.checkout-container .col1 span {
+  margin-bottom: 3px;
+  display: flex;
+}
+.checkout-container .col1 input {
+  width: 100%;
+  box-shadow: 1px 1px 2px grey;
+  padding: 10px 15px;
+}
+.state-zip {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 10px;
+  width: 100%;
+}
+.payment .cards .card-images .card img {
+  width: 56px;
+  height: 42px;
+  padding: 0px;
+}
+.card-images {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+.payment .cards .card-images .card {
+  padding: 0;
+  margin: 0;
+}
+.card-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 0;
+}
+.payment .cards span {
+  color: white;
+}
+.checkout-form button {
+  width: 90%;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.checkout-form button:hover {
+  transform: scale(1.05);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 800px) {
+  section .checkout-form {
+    flex-wrap: no-wrap;
+    flex-direction: column;
+    width: 100%;
+  }
+  .checkout-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .checkout-container .billing-adress {
+    width: 100%;
+  }
+  .checkout-container .payment {
+    width: 100%;
+  }
+}

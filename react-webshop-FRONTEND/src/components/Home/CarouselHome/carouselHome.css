@@ -1,0 +1,27 @@
+.carousel-container h1 {
+  text-align: center;
+}
+.carousel-card {
+  margin: 10px;
+  width: 350px;
+  height: 600px;
+  transition: all 0.5s ease-in;
+}
+
+.carousel-card div {
+  position: relative;
+}
+.carousel-card div img {
+  width: 100%;
+  border-radius: 20px;
+}
+.carousel-card div h6 {
+  position: absolute;
+  color: white;
+  bottom: 2.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  font-weight: 700;
+  text-shadow: 2px 2px 2px black;
+}

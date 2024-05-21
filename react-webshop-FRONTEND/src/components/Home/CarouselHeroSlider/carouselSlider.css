@@ -1,0 +1,128 @@
+.swiper {
+  width: 100%;
+  height: 75vh;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+}
+
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: white;
+  fill: none;
+  stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}
+.swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+}
+.slider-container {
+  position: relative;
+}
+.slider-container .content-container {
+  position: relative;
+  width: 400px;
+  border-radius: 20px;
+  height: 150px;
+  background-color: rgb(0, 0, 0, 0.4);
+  top: 10%;
+  left: 10%;
+  transition: all 0.5 ease-in-out;
+}
+.slider-container .content-container .content {
+  z-index: 100;
+  color: #fff;
+  padding: 15px;
+  transition: all 0.5 ease-in-out;
+}
+.slider-container .content-container .content:hover {
+  color: black;
+}
+.slider-container .content-container:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: black;
+}
+
+.slider-container .content-container .content h4 {
+  font-weight: 700;
+}
+.slider-container .content-container .content button {
+  padding: 3px 10px;
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+}
+.slider-container .content-container .content button:hover {
+  background-color: #e25822;
+}
+
+.swiper-container .slider-container-first {
+  background: url("https://crorace.com/wp-content/uploads/2023/09/CRO-Race-2023-1-scaled.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 80vh;
+}
+.swiper-container .slider-container-second {
+  background: url("https://images.bike24.com/i/mb/a9/69/94/inline-1-2112x1400-scott-21-12-bike24-1120073.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 80vh;
+}
+.swiper-container .slider-container-third {
+  background: url("https://i.pinimg.com/originals/5f/73/95/5f73951b1a1de5f72f457ad3f92f3d7c.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 80vh;
+}
+.swiper-container .slider-container-fourth {
+  background: url("https://cloudfront-us-east-2.images.arcpublishing.com/reuters/E5RSK3WFJFOT5HP6GKJ5K5KLGA.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 80vh;
+}
+
+@media screen and (max-width: 500px) {
+  .slider-container .content-container {
+    width: 325px;
+    height: 175px;
+  }
+}

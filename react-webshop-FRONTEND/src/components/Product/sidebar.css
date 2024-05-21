@@ -1,0 +1,54 @@
+.sidebar-products-categories {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.sidebar-products-categories .brands {
+  border-radius: 5px solid black;
+  padding: 15px;
+  background-color: beige;
+}
+
+.sidebar-products-categories .prices {
+  padding: 15px;
+  background-color: beige;
+}
+
+.sidebar-products-categories .categories-heading {
+  padding: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  border: 1px solid black;
+  justify-content: space-between;
+  transition: all 0.5s ease-in-out;
+}
+.sidebar-products-categories .categories-heading:hover {
+  background-color: rgb(193, 193, 161);
+}
+
+.brands-active {
+  display: none;
+  transition: all 0.5s ease-in-out;
+}
+.prices-active {
+  display: none;
+  transition: all 0.5s ease-in-out;
+}
+.ant-radio-group {
+  font-size: 22px !important;
+}
+
+.categories-heading h5 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar-products-categories {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .categories-heading h5 {
+    margin-right: 10px;
+  }
+}

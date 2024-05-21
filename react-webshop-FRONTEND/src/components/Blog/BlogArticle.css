@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+}
+.article-container {
+  width: 100%;
+  background-color: #e3e5ea;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.heading-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.blog-intro-container {
+  width: 80%;
+  margin-top: 0.5rem;
+}
+.blog-intro {
+  background: url(https://www.biketeam-radreisen.de/wp-content/uploads/tr_module_images/wp/Mountainbike_Reisen_c_MAblinger-scaled_6995_960_300_crop.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 300px;
+  margin-bottom: 1rem;
+}
+.blog-heading {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  background-color: #95accc;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.blog-heading div:nth-child(1) {
+  display: flex;
+  align-items: center;
+}
+.blog-heading div:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+.blog-heading div:nth-child(1) span h2 {
+  color: #034694;
+}
+.blog-heading div:nth-child(1) span {
+  margin: 0 5px;
+}
+
+.blog-heading div p {
+  text-align: center;
+  background-color: #034694;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+}
+
+/*Blog Article*/
+.blog-article {
+  width: 80%;
+  padding: 1rem;
+  background-color: rgb(109, 255, 204);
+  text-align: center;
+}
+.blog-article .paragraph {
+  display: flex;
+  padding: 1rem;
+  text-align: left;
+}
+.blog-article .paragraph div {
+  margin: 0.5rem;
+}

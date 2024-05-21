@@ -1,0 +1,143 @@
+.register-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url(../../assets/Contact-images/contact-image.jpg);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-container .register-modal {
+  position: absolute;
+  color: white;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-container .register-modal div {
+  border-radius: 10px;
+}
+.register-container .register-modal div form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  column-gap: 5px;
+  width: 600px;
+  height: 600px;
+  position: relative;
+  padding: 20px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.9);
+  background: rgba(4, 1, 90, 0.5);
+}
+.register-container .register-modal div form h1 {
+  font-size: 36px;
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+.register-container .register-modal div form .username {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+
+.register-container .register-modal div form .register-input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 15px 0;
+}
+.register-container .register-modal div form .register-input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  border: 2px solid rgb(255, 255, 255, 0.2);
+  font-size: 16px;
+  color: white;
+  padding: 20px 45px 20px 20px;
+}
+.register-container
+  .register-modal
+  div
+  form
+  .register-input-box
+  input::placeholder {
+  color: rgb(255, 255, 255, 0.75);
+}
+
+.register-container .register-modal div form .register-input-box .icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/*BUTTON SUBMIT*/
+.register-container .register-modal div form button {
+  width: 100%;
+  height: 45px;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+  margin: 15px;
+  font-weight: 700;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+.register-container .register-modal div form button:hover {
+  color: orange;
+}
+
+/*REGISTER LINK*/
+.register-container .register-modal div form .register-link a {
+  font-weight: 700;
+  transition: color 0.3s ease-in-out;
+}
+.register-container .register-modal div form .register-link a:hover {
+  color: orange;
+}
+
+/*CLOSE MODAL LOGIC*/
+.close-register-modal {
+  display: none;
+}
+.register-container .register-modal div form .close-register-modal-icon {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.register-container .register-modal div form .close-register-modal-icon:hover {
+  background-color: orange;
+}
+
+@media screen and (max-width: 550px) {
+  .register-container .register-modal div form {
+    width: 450px;
+    height: 450px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .register-container .register-modal div form {
+    width: 350px;
+    height: 350px;
+  }
+}

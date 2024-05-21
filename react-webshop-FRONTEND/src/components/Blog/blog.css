@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+}
+
+main {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #ece9e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #ece9e6
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #ece9e6
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/*BLOG HEADING*/
+.blog-heading {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  background-color: #95accc;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.blog-heading div:nth-child(1) {
+  display: flex;
+  align-items: center;
+}
+.blog-heading div:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+.blog-heading div:nth-child(1) span h2 {
+  color: #034694;
+}
+.blog-heading div:nth-child(1) span {
+  margin: 0 5px;
+}
+
+.blog-heading div p {
+  text-align: center;
+  background-color: #034694;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+}
+
+/*--------BLOG - BLOG MAIN CONTAINER---------*/
+.blog-main-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+  width: 80%;
+  align-items: center;
+}
+
+.blog-intro {
+  background: url(https://www.biketeam-radreisen.de/wp-content/uploads/tr_module_images/wp/Mountainbike_Reisen_c_MAblinger-scaled_6995_960_300_crop.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 300px;
+  margin-bottom: 1rem;
+}
+
+/*---------BLOG - ASIDE BLOG----------*/
+.aside-blog {
+  box-shadow: 2px 2px 4px grey, -2px -2px 4px grey;
+  width: 35%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.25rem;
+  color: #ffffff;
+}
+.aside-blog-one {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: grey;
+  padding: 1rem;
+  border-radius: 25px;
+}
+.aside-blog-one .blog-one {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.aside-blog-one .blog-one h3 {
+  text-decoration: underline;
+}
+
+.aside-blog-two {
+  margin-top: 1.5rem;
+  background-color: grey;
+  border-radius: 25px;
+  width: 100%;
+}
+.aside-blog-two .blog-two {
+  padding: 1rem;
+}
+.aside-blog-two .blog-two img {
+  border-radius: 10px;
+}
+
+/*BLOG - BLOG CONTAINER*/
+.blog-container {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  column-gap: 1rem;
+}
+.right-blog {
+  width: 65%;
+}
+.back_blog_color {
+  background-color: rgb(53, 57, 53, 0.4);
+  padding: 2rem;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 1rem;
+}
+.blog-card {
+  display: flex;
+  flex-direction: row;
+  background-color: #414852;
+  width: 100%;
+  height: 100%;
+  column-gap: 1rem;
+  box-shadow: 10px 10px 10px rgba(34, 35, 58, 0.4),
+    -10px -10px 10px rgba(34, 35, 58, 0.4);
+  border-radius: 25px;
+  padding: 25px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.blog-card:hover {
+  transform: scale(1.01);
+}
+.card_text {
+  padding: 1rem;
+  color: whitesmoke;
+}
+.image_card {
+  flex: 1;
+}
+.card_info {
+  flex: 2;
+}
+.image_card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.blog-card h2 {
+  margin: 30px 0px;
+}
+.blog-card p {
+  opacity: 0.9;
+}
+.blog-card a {
+  opacity: 0;
+  text-decoration: none;
+  padding: 20px 30px 30px 30px;
+  float: right;
+  font-size: 1.2rem;
+  color: #e25822;
+}
+.blog-card:hover a {
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+}
+.label {
+  width: 130px;
+  text-align: center;
+  padding: 7px;
+  border-radius: 18px;
+  background-image: linear-gradient(147deg, #e0934b 0%, #e25822 74%);
+  color: white;
+  transition: background-image 0.5s ease-in-out;
+  margin-bottom: 1rem;
+}
+.blog-card:hover .smartwatches {
+  background-image: linear-gradient(
+    147deg,
+    rgb(197, 48, 105) 0%,
+    rgb(247, 0, 62) 74%
+  );
+}
+.blog-card:hover .luxury {
+  background-image: linear-gradient(
+    147deg,
+    rgb(190, 197, 48) 0%,
+    rgb(207, 166, 15) 74%
+  );
+}
+.blog-card:hover .lifestyle {
+  background-image: linear-gradient(
+    147deg,
+    rgb(224, 66, 18) 0%,
+    rgb(208, 24, 24) 74%
+  );
+}
+
+@media only screen and (max-width: 1000px) {
+  .aside-blog {
+    width: 10%;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .blog-container {
+    max-width: 100%;
+  }
+  .blog-intro {
+    background-position: 20%;
+  }
+  .aside-blog {
+    display: none;
+  }
+  .right-blog {
+    width: 100%;
+  }
+  .blog-heading {
+    flex-direction: column;
+    align-items: center;
+  }
+  .back_blog_color {
+    padding: 0.25rem;
+  }
+}
+
+@media only screen and (max-width: 1550px) {
+  .blog-card {
+    flex-direction: column;
+  }
+}
