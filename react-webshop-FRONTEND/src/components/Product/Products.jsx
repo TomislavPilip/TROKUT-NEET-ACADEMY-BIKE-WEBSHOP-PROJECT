@@ -9,6 +9,7 @@ import { CartContext } from "../Context/CartContext";
 import toast, { Toaster } from "react-hot-toast";
 import { Sidebar } from "./Sidebar";
 import { Dropdown } from "react-bootstrap";
+import { Drawer, Radio, Space } from "antd";
 
 export function Products() {
   const [sortBy, setSortBy] = useState();
@@ -76,176 +77,269 @@ export function Products() {
     toast.success(`${itemTitle} added to cart!`);
   }
 
-  const { cartItems, addToCart } = useContext(CartContext);
+  const { cartItems, addToCart, removeFromCart, clearCart } =
+    useContext(CartContext);
   console.log("These are cartItems =>", cartItems);
   console.log(data);
-  return (
-    <div className="products-container">
-      <div className="products-left-container">
-        <div className="products-sidebar">
-          <Sidebar
-            filterProducts={filterProducts}
-            filterCategory={filterCategory}
-          />
-        </div>
-      </div>
-      <div className="products-right-container">
-        <Container fluid>
-          <Row className="d-flex justify-content-end">
-            <Col className="col-4 d-flex justify-content-end">
-              <div className="order-products-filter">
-                <Dropdown>
-                  <Dropdown.Toggle
-                    variant="transparent border-0"
-                    id="dropdown-basic"
-                  >
-                    Arrange products
-                  </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item
-                      onClick={() => handleSorting("AtoZ")}
-                      href="#/action-1"
+  //DRAWER
+  const [open, setOpen] = useState(false);
+  const [placement, setPlacement] = useState("right");
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onChange = (e) => {
+    setPlacement(e.target.value);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
+  return (
+    <>
+      <div className="products-container">
+        <div className="products-left-container">
+          <div className="products-sidebar">
+            <Sidebar
+              filterProducts={filterProducts}
+              filterCategory={filterCategory}
+            />
+          </div>
+        </div>
+        <div className="products-right-container">
+          <Container fluid>
+            <Row className="d-flex justify-content-end">
+              <Col className="col-4 d-flex justify-content-end">
+                <div className="order-products-filter">
+                  <Dropdown>
+                    <Dropdown.Toggle
+                      variant="transparent border-0"
+                      id="dropdown-basic"
                     >
-                      From A to Z
-                    </Dropdown.Item>
-                    <Dropdown.Item
-                      onClick={() => handleSorting("ZtoA")}
-                      href="#/action-2"
-                    >
-                      From Z to A
-                    </Dropdown.Item>
-                    <Dropdown.Item
-                      onClick={() => handleSorting("PriceUp")}
-                      href="#/action-3"
-                    >
-                      <span>Prices</span>
-                      <span>
-                        <Icon
-                          icon="icon-park:up"
-                          width="1.5em"
-                          height="1.5em"
+                      Arrange products
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item
+                        onClick={() => handleSorting("AtoZ")}
+                        href="#/action-1"
+                      >
+                        From A to Z
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={() => handleSorting("ZtoA")}
+                        href="#/action-2"
+                      >
+                        From Z to A
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={() => handleSorting("PriceUp")}
+                        href="#/action-3"
+                      >
+                        <span>Prices</span>
+                        <span>
+                          <Icon
+                            icon="icon-park:up"
+                            width="1.5em"
+                            height="1.5em"
+                          />
+                        </span>
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={() => handleSorting("PriceDown")}
+                        href="#/action-3"
+                      >
+                        <span>Prices</span>
+                        <span>
+                          <Icon
+                            icon="icon-park:down"
+                            width="1.5em"
+                            height="1.5em"
+                          />
+                        </span>
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+                );
+              </Col>
+            </Row>
+          </Container>
+          <Container fluid className="p-0">
+            <Toaster />
+            <Row className="m-3">
+              {filteredProducts &&
+                filteredProducts.map(function (item, index) {
+                  return (
+                    <Col className="col-lg-6  col-xxl-4 col-md-12 mb-4 col-12 p-2">
+                      <Card
+                        className="bg-grey text-black flex-fill shadow-lg border-3 border-warning products-card "
+                        key={item.id}
+                      >
+                        <Card.Img
+                          className="fluid shadow-sm border-3 border-warning"
+                          variant="top"
+                          src={item.img}
+                          style={{
+                            objectFit: "contain",
+                            height: "300px",
+                            width: "100%",
+                            padding: "5px",
+                          }}
                         />
-                      </span>
-                    </Dropdown.Item>
-                    <Dropdown.Item
-                      onClick={() => handleSorting("PriceDown")}
-                      href="#/action-3"
-                    >
-                      <span>Prices</span>
-                      <span>
-                        <Icon
-                          icon="icon-park:down"
-                          width="1.5em"
-                          height="1.5em"
-                        />
-                      </span>
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </div>
-              );
-            </Col>
-          </Row>
-        </Container>
-        <Container fluid className="p-0">
-          <Toaster />
-          <Row className="m-3">
-            {filteredProducts &&
-              filteredProducts.map(function (item, index) {
-                return (
-                  <Col className="col-lg-6  col-xxl-4 col-md-12 mb-4 col-12 p-2">
-                    <Card
-                      className="bg-grey text-black flex-fill shadow-lg border-3 border-warning products-card "
-                      key={item.id}
-                    >
-                      <Card.Img
-                        className="fluid shadow-sm border-3 border-warning"
-                        variant="top"
-                        src={item.img}
-                        style={{
-                          objectFit: "contain",
-                          height: "300px",
-                          width: "100%",
-                          padding: "5px",
-                        }}
-                      />
-                      <Card.Body className="bg-info bg-gradient">
-                        <Card.Body>
-                          <Card.Title className="fs-5 fw-bold">
-                            {item.title}
-                          </Card.Title>
-                          <Card.Body className="d-flex justify-content-between align-items-center py-0">
-                            <Card.Text className="fw-bold ">
-                              {item.company.toUpperCase()}
-                            </Card.Text>
-                            <Card.Text className="">
-                              <div></div>
+                        <Card.Body className="bg-info bg-gradient">
+                          <Card.Body>
+                            <Card.Title className="fs-5 fw-bold">
+                              {item.title}
+                            </Card.Title>
+                            <Card.Body className="d-flex justify-content-between align-items-center py-0">
+                              <Card.Text className="fw-bold ">
+                                {item.company.toUpperCase()}
+                              </Card.Text>
+                              <Card.Text className="">
+                                <div></div>
+                              </Card.Text>
+                            </Card.Body>
+
+                            <Card.Text className="fw-bold fs-5 text-danger py-0">
+                              {item.price}€
                             </Card.Text>
                           </Card.Body>
-
-                          <Card.Text className="fw-bold fs-5 text-danger py-0">
-                            {item.price}€
-                          </Card.Text>
-                        </Card.Body>
-                        <Card.Body className="py-0">
-                          <div>
-                            <span className="mt-3">
-                              <Rate
-                                allowHalf={true}
-                                defaultValue={item.rating}
-                                onChange={(value) =>
-                                  handleRatingChage(item.title, value)
-                                }
-                              />
-                            </span>
-                          </div>
-                          <div className="d-flex flex-sm-row flex-column justify-content-between pb-2 w-100 mt-3">
-                            <Link
-                              className="opacity-100"
-                              to={`/product/${item.id}`}
-                            >
-                              <Button className="bg-secondary border-0">
-                                <span>Read more</span>
-                                <span>
-                                  <Icon
-                                    icon="majesticons:arrow-right-line"
-                                    width="1.2em"
-                                    height="1.2em"
-                                    style={{ color: "white" }}
-                                  />
-                                </span>
-                              </Button>
-                            </Link>
-                            <Link>
-                              <Button
-                                className="btn-dark mt-sm-0 mt-2"
-                                class
-                                onClick={() => {
-                                  addToCart(item), notify(item.title);
-                                }}
+                          <Card.Body className="py-0">
+                            <div>
+                              <span className="mt-3">
+                                <Rate
+                                  allowHalf={true}
+                                  defaultValue={item.rating}
+                                  onChange={(value) =>
+                                    handleRatingChage(item.title, value)
+                                  }
+                                />
+                              </span>
+                            </div>
+                            <div className="d-flex flex-sm-row flex-column justify-content-between pb-2 w-100 mt-3">
+                              <Link
+                                className="opacity-100"
+                                to={`/product/${item.id}`}
                               >
-                                <span>
-                                  <Icon
-                                    icon="mdi:cart"
-                                    width="1.2em"
-                                    height="1.2em"
-                                    style={{ color: "white" }}
-                                  />
-                                </span>{" "}
-                                <span>Add to cart</span>
-                              </Button>
-                            </Link>
-                          </div>
+                                <Button className="bg-secondary border-0">
+                                  <span>Read more</span>
+                                  <span>
+                                    <Icon
+                                      icon="majesticons:arrow-right-line"
+                                      width="1.2em"
+                                      height="1.2em"
+                                      style={{ color: "white" }}
+                                    />
+                                  </span>
+                                </Button>
+                              </Link>
+                              <Link>
+                                <Button
+                                  className="btn-dark mt-sm-0 mt-2"
+                                  class
+                                  onClick={() => {
+                                    addToCart(item),
+                                      notify(item.title),
+                                      showDrawer();
+                                  }}
+                                >
+                                  <span>
+                                    <Icon
+                                      icon="mdi:cart"
+                                      width="1.2em"
+                                      height="1.2em"
+                                      style={{ color: "white" }}
+                                    />
+                                  </span>{" "}
+                                  <span>Add to cart</span>
+                                </Button>
+                              </Link>
+                            </div>
+                          </Card.Body>
                         </Card.Body>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                );
-              })}
-          </Row>
-        </Container>
+                      </Card>
+                    </Col>
+                  );
+                })}
+            </Row>
+          </Container>
+        </div>
       </div>
-    </div>
+      {/* <Space>
+        <Radio.Group value={placement} onChange={onChange}>
+          <Radio value="top">top</Radio>
+          <Radio value="right">right</Radio>
+          <Radio value="bottom">bottom</Radio>
+          <Radio value="left">left</Radio>
+        </Radio.Group>
+        <Button type="primary" onClick={showDrawer}>
+          Open
+        </Button>
+      </Space> */}
+      <Drawer
+        title="Added products"
+        placement={placement}
+        width={350}
+        onClose={onClose}
+        open={open}
+      >
+        {cartItems &&
+          cartItems.map((item) => {
+            return (
+              <>
+                <div className="drawer-container">
+                  <div>
+                    <img
+                      width={100}
+                      height={100}
+                      src={item.img}
+                      alt={item.title}
+                    />
+                  </div>
+                  <p>{item.title}</p>
+                  <p>{item.price}€</p>
+                  <div
+                    className="drawer-delete-product"
+                    onClick={() => removeFromCart(item)}
+                  >
+                    <Icon
+                      icon="ic:round-delete"
+                      width="3em"
+                      height="3em"
+                      style={{ color: "black" }}
+                    />
+                  </div>
+                </div>
+              </>
+            );
+          })}
+        <div className="drawer-buttons">
+          <button className="drawer-cart-button">
+            <Link style={{ color: "white" }} to={"/cart"}>
+              <span>Cart</span>
+              <span>
+                <Icon
+                  icon="mdi:cart"
+                  width="1.5em"
+                  height="1.5em"
+                  style={{ color: "white" }}
+                />
+              </span>
+            </Link>
+          </button>
+          <button className="drawer-clear-button" onClick={clearCart}>
+            <span>Clear</span>
+            <span>
+              <Icon
+                icon="mdi:clear-bold"
+                width="1.5em"
+                height="1.5em"
+                style={{ color: "white" }}
+              />
+            </span>
+          </button>
+        </div>
+      </Drawer>
+    </>
   );
 }

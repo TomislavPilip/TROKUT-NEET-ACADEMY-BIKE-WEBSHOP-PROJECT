@@ -55,3 +55,65 @@
     height: auto;
   }
 }
+.drawer-container {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.drawer-container:hover .drawer-delete-product {
+  opacity: 0.75;
+}
+.drawer-container p:nth-of-type(2) {
+  color: red;
+}
+.drawer-delete-product {
+  /* display: none; */
+  z-index: 100;
+  width: 30%;
+  height: 100%;
+  background-color: red;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  right: 0;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.drawer-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+}
+.drawer-cart-button {
+  background-color: black;
+  color: white !important;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.drawer-cart-button span:nth-of-type(2) {
+  margin-left: 3.5px;
+}
+.drawer-cart-button:hover {
+  background-color: rgb(97, 97, 97);
+  color: white !important;
+}
+
+.drawer-clear-button {
+  background-color: black;
+  color: white !important;
+  padding: 5px 8px;
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+}
+.drawer-clear-button:hover {
+  background-color: rgb(97, 97, 97);
+}
