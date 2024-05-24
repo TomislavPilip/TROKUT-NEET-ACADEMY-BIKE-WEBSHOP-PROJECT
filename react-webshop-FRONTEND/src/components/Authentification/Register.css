@@ -129,15 +129,16 @@
   background-color: orange;
 }
 
+/*RESPONSIVE*/
 @media screen and (max-width: 550px) {
   .register-container .register-modal div form {
     width: 450px;
-    height: 450px;
+    height: 500px;
   }
 }
 @media screen and (max-width: 450px) {
   .register-container .register-modal div form {
     width: 350px;
-    height: 350px;
+    height: 500px;
   }
 }

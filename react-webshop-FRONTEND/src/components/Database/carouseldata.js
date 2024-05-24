@@ -30,14 +30,4 @@ export const carouselData = [
     category: "kids",
     id: 6,
   },
-  {
-    image: "https://markoprojekt.com/_SHOP/files/pages/mtb-cat.jpg?id=1383",
-    category: "mtb",
-    id: 7,
-  },
-  {
-    image: "https://markoprojekt.com/_SHOP/files/pages/mtb-cat.jpg?id=1383",
-    category: "mtb",
-    id: 8,
-  },
 ];

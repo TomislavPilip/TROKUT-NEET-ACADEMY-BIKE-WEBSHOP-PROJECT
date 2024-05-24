@@ -22,6 +22,7 @@ import { BlogWrapperComponent } from "./components/AppWrapperComponent/BlogWrapp
 import { Checkout } from "./components/Checkout/Checkout";
 import { About } from "./components/About/About";
 import { CategoryProductsPage } from "./components/Product/CategoryProductsPage";
+import ScrollOnTop from "./components/ScrollOnTop/ScrollOnTop";
 
 function App() {
   ///////Everything is going to be rendered in APPWRAPPERCOMPONENT
@@ -46,6 +47,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <ScrollOnTop />
         <Routes>
           <Route
             path="/"

@@ -160,7 +160,7 @@ export function Products() {
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>
-                );
+                ;
               </Col>
             </Row>
           </Container>
@@ -283,62 +283,65 @@ export function Products() {
         onClose={onClose}
         open={open}
       >
-        {cartItems &&
-          cartItems.map((item) => {
-            return (
-              <>
-                <div className="drawer-container">
-                  <div>
-                    <img
-                      width={100}
-                      height={100}
-                      src={item.img}
-                      alt={item.title}
-                    />
-                  </div>
-                  <p>{item.title}</p>
-                  <p>{item.price}€</p>
-                  <div
-                    className="drawer-delete-product"
-                    onClick={() => removeFromCart(item)}
-                  >
-                    <Icon
-                      icon="ic:round-delete"
-                      width="3em"
-                      height="3em"
-                      style={{ color: "black" }}
-                    />
-                  </div>
+        {cartItems.length === 0 ? (
+          <div style={{ textAlign: "center" }}>
+            <p>Add products to cart</p>
+          </div>
+        ) : (
+          <>
+            {cartItems.map((item, index) => (
+              <div key={index} className="drawer-container">
+                <div>
+                  <img
+                    width={100}
+                    height={100}
+                    src={item.img}
+                    alt={item.title}
+                  />
                 </div>
-              </>
-            );
-          })}
-        <div className="drawer-buttons">
-          <button className="drawer-cart-button">
-            <Link style={{ color: "white" }} to={"/cart"}>
-              <span>Cart</span>
-              <span>
-                <Icon
-                  icon="mdi:cart"
-                  width="1.5em"
-                  height="1.5em"
-                  style={{ color: "white" }}
-                />
-              </span>
-            </Link>
-          </button>
-          <button className="drawer-clear-button" onClick={clearCart}>
-            <span>Clear</span>
-            <span>
-              <Icon
-                icon="mdi:clear-bold"
-                width="1.5em"
-                height="1.5em"
-                style={{ color: "white" }}
-              />
-            </span>
-          </button>
-        </div>
+                <p>{item.title}</p>
+                <p>{item.price}€</p>
+                <div
+                  className="drawer-delete-product"
+                  onClick={() => removeFromCart(item)}
+                >
+                  <Icon
+                    icon="ic:round-delete"
+                    width="3em"
+                    height="3em"
+                    style={{ color: "black" }}
+                  />
+                </div>
+              </div>
+            ))}
+            <div className="drawer-buttons">
+              <button className="drawer-cart-button">
+                <Link style={{ color: "white" }} to={"/cart"}>
+                  <span>Cart</span>
+                  <span>
+                    <Icon
+                      icon="mdi:cart"
+                      width="1.5em"
+                      height="1.5em"
+                      style={{ color: "white" }}
+                    />
+                  </span>
+                </Link>
+              </button>
+              <button className="drawer-clear-button" onClick={clearCart}>
+                <span>Clear</span>
+                <span>
+                  <Icon
+                    icon="mdi:clear-bold"
+                    width="1.5em"
+                    height="1.5em"
+                    style={{ color: "white" }}
+                  />
+                </span>
+              </button>
+            </div>
+          </>
+        )}
       </Drawer>
     </>
   );

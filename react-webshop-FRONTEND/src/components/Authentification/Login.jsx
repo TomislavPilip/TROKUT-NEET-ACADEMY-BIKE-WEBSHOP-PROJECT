@@ -49,7 +49,7 @@ export function Login() {
             <div className="register-link">
               <p>
                 Don't have an account?{" "}
-                <Link to={"/authentification/register"}>Register</Link>
+                <Link to={"/authentification/register"}>Sign Up</Link>
               </p>
             </div>
 
