@@ -26,10 +26,10 @@ dataSource
 const app: Express = express()
 const port = process.env.PORT || 3000
 
+app.use(cors())
 app.use(express.json())
 app.use(errorHandler)
 // Use the CORS middleware
-app.use(cors())
 
 //app.use('/', homeRoutes)
 app.use('/auth', authRoutes)

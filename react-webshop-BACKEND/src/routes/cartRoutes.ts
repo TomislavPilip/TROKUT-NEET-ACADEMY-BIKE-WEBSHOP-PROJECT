@@ -13,6 +13,7 @@ import { authenticateToken } from '../middlewares/authHandler'
 const router = express.Router()
 
 //get cart from user
+router.use(authenticateToken)
 router.get('/', getCart)
 router.get('/:id', getCartById)
 

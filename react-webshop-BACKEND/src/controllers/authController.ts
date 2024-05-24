@@ -7,6 +7,7 @@ const registerUser = async (
   next: NextFunction,
 ) => {
   try {
+    //Ovo je request koji korisnik salje u body
     const { userEmail, userName, userPassword, userPhone } = req.body
     await AuthService.registerUser(userEmail, userName, userPassword, userPhone)
     res.status(201).json({ message: 'User registered successfully' })

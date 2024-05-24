@@ -14,7 +14,7 @@ const router = express.Router()
 router.post('/user', createUser)
 router.get('/user', getAllUsers)
 router.delete('/user/:id', deleteUserById)
-router.use(authenticateToken)
+//router.use(authenticateToken)
 
 router.get('/user/:id', getUserByUserId)
 

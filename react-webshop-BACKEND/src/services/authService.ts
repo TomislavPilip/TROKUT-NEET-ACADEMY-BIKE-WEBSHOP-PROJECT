@@ -73,6 +73,11 @@ class AuthService {
       throw new HttpError(401, 'Wrong email or password')
     }
 
+    //Nakon provjere je su li mail i lozinka valjani generiramo JWT token
+    //Sastoji se od tri dijela: HEADERA, SIGNATUREA i PAYLOADA
+    //HEADERA sadrzi informacije o tipu tokena i algoritmu za generaciju signature-a("alg":"HS256", "typ":"JWT")
+    //PAYLOAD sadrzi userEmail i userId, i tu mozemo staviti podatke koje zelimo
+    //SIGNATURE sadrzi signature tokena, koji osigurava da se ono sto saljemo nije promijenilo
     const accessToken = jwt.sign(
       {
         userEmail: userEmail,
@@ -82,7 +87,13 @@ class AuthService {
       { expiresIn: '24h' },
     )
 
-    return { accessToken, userName: findUser.userName }
+    console.log('Email and userId', userEmail, findUser.userId)
+
+    //Vracamo token i username korisnika; username cemo spremiti u localStorage i koristiti ga za frontend
+    return {
+      accessToken,
+      userName: findUser.userName,
+    }
   }
 }
 

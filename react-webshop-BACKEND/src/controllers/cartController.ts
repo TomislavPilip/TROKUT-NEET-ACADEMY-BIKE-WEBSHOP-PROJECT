@@ -20,20 +20,45 @@ const getCart = async (req: AuthenticatedRequest, res: Response) => {
   }
 }
 
-const getCartById = async (req: Request, res: Response) => {
-  res.send(await cartService.getCartById(Number.parseInt(req.params.id, 10)))
+const getCartById = async (req: AuthenticatedRequest, res: Response) => {
+  const user = req.user
+  if (!user) {
+    return res.status(401).json({ message: 'Unauthorized' })
+  }
+  try {
+    res.send(await cartService.getCartById(Number.parseInt(req.params.id, 10)))
+  } catch (error) {
+    console.error('Error fetching cart by ID:', error)
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
 }
 
-const addProductToCart = async (req: Request, res: Response) => {
-  const cartProductAddRequest = req.body as CartProductAddRequest
-  const cartId = Number(parseInt(req.params.cartId, 10))
-  const productId = Number(parseInt(req.params.productId, 10))
-  res.send(
-    await cartService.addProductById(cartId, productId, cartProductAddRequest),
-  )
+const addProductToCart = async (req: AuthenticatedRequest, res: Response) => {
+  const user = req.user
+  if (!user) {
+    return res.status(401).json({ message: 'Unauthorized' })
+  }
+  try {
+    const cartProductAddRequest = req.body as CartProductAddRequest
+    const cartId = Number(parseInt(req.params.cartId, 10))
+    const productId = Number(parseInt(req.params.productId, 10))
+    res.send(
+      await cartService.addProductById(
+        cartId,
+        productId,
+        cartProductAddRequest,
+      ),
+    )
+  } catch (error) {
+    console.error('Error adding product to cart:', error)
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
 }
 
-const updateProductQuantity = async (req: Request, res: Response) => {
+const updateProductQuantity = async (
+  req: AuthenticatedRequest,
+  res: Response,
+) => {
   const cartProductAddRequest = req.body as CartProductAddRequest
   const cartId = Number(parseInt(req.params.cartId, 10))
   const productId = Number(parseInt(req.params.productId, 10))
@@ -46,14 +71,17 @@ const updateProductQuantity = async (req: Request, res: Response) => {
   )
 }
 
-const removeProductFromCart = async (req: Request, res: Response) => {
+const removeProductFromCart = async (
+  req: AuthenticatedRequest,
+  res: Response,
+) => {
   const cartId = Number(parseInt(req.params.cartId, 10))
   const productId = Number(parseInt(req.params.productId, 10))
 
   res.send(await cartService.removeProductFromCart(cartId, productId))
 }
 
-const clearCart = async (req: Request, res: Response) => {
+const clearCart = async (req: AuthenticatedRequest, res: Response) => {
   const cartId = Number.parseInt(req.params.cartId, 10)
   res.send(await cartService.clearCart(cartId))
 }
