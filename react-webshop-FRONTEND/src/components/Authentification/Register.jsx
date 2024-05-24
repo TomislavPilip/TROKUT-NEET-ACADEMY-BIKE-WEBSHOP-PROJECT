@@ -18,28 +18,6 @@ export function Register() {
         <div>
           <form action="">
             <h1>Register </h1>
-            <div className="username">
-              <div className="register-input-box">
-                <input type="text" placeholder="First Name" required />
-                <Icon
-                  className="icon"
-                  icon="icon-park-solid:edit-name"
-                  width="2em"
-                  height="2em"
-                  style={{ color: "grey" }}
-                />
-              </div>
-              <div className="register-input-box">
-                <input type="text" placeholder="Last Name" required />
-                <Icon
-                  className="icon"
-                  icon="icon-park-solid:edit-name"
-                  width="2em"
-                  height="2em"
-                  style={{ color: "grey" }}
-                />
-              </div>
-            </div>
 
             <div className="register-input-box">
               <input type="text" placeholder="Username" required />
@@ -51,25 +29,32 @@ export function Register() {
                 style={{ color: "grey" }}
               />
             </div>
+
             <div className="register-input-box">
               <input type="email" placeholder="Email" required />
               <Icon
+                icon="ic:baseline-email"
                 className="icon"
-                icon="iconamoon:profile-fill"
                 width="2em"
                 height="2em"
                 style={{ color: "grey" }}
               />
             </div>
-
             <div className="register-input-box">
-              <input type="date" placeholder="Date of birth" required />
-            </div>
-            <div className="register-input-box">
-              <input type="email" placeholder="Email" required />
+              <input type="password" placeholder="Password" required />
               <Icon
                 className="icon"
-                icon="iconamoon:profile-fill"
+                icon="mdi:password"
+                width="2em"
+                height="2em"
+                style={{ color: "grey" }}
+              />
+            </div>
+            <div className="register-input-box">
+              <input type="phone" placeholder="Phone" required />
+              <Icon
+                className="icon"
+                icon="ic:baseline-phone"
                 width="2em"
                 height="2em"
                 style={{ color: "grey" }}
